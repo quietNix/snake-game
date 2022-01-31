@@ -6,18 +6,16 @@ const gameBoard = document.getElementById('game-board');
 let lastRenderTime = 0
 let gameOver = false
 
-
 window.requestAnimationFrame(gameLoop)
 
 function gameLoop(currentTime) {
   if (gameOver) {
-    if (confirm('You lost. Press ok to restart.')) window.location = '/';
+    if (confirm('You lost. Press ok to restart.')) {window.location = '/';}
     return;
   }
   window.requestAnimationFrame(gameLoop);
 
   if(!isTimeToMove(currentTime)) return;
-  console.log("jk")
   update();
   draw();
 }
@@ -36,9 +34,9 @@ function update() {
 }
 
 function draw() {
-  // gameBoard.innerHTML = ''
-  drawSnake(gameBoard)
-  drawFood(gameBoard)
+  gameBoard.innerHTML = '';
+  drawSnake(gameBoard);
+  drawFood(gameBoard);
 }
 
 function checkDeath() {
